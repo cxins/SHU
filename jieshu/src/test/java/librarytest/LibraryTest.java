@@ -55,5 +55,20 @@ public class LibraryTest {
 		System.out.println("时间：" + member1.getLoans().get(0).getLoanDate());
 		
 	}
-	
+	@Test
+	public void loanFail(){
+		this.loanSuccess();
+		member1.Loan(book1);
+		if(member1.validate(book1)==false){
+			System.out.println("借书失败");
+		}
+	}
+	@Test
+	public void returnBook(){
+		this.loanSuccess();
+		member1.Return(book1);
+		System.out.println("还书");
+		System.out.println("姓名：" + member1.getName());
+		System.out.println("书名：" + book1.getTitle());
+	}
 }
